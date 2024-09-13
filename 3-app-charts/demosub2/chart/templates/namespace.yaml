@@ -1,0 +1,8 @@
+# TMP BEZ ARGA: zakomentovane..
+# KED BUDE ARGO: odkomenujem
+
+
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: {{ .Values.metadata.partOf }}

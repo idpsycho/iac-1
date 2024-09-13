@@ -1,0 +1,31 @@
+# ak chces aby sa ti aj argo updatovalo podla gitu..
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap-argo
+  namespace: argocd-system
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/idpsycho/iac.git
+      targetRevision: HEAD
+      path: 0a-argo-seed/
+      directory:
+        include: "argo-appset.yaml"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status
+

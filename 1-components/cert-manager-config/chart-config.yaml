@@ -1,0 +1,3 @@
+release:
+  name: cert-manager-config
+  namespace: cert-manager-system

@@ -1,0 +1,3 @@
+release:
+  name: argocd
+  namespace: argocd-system

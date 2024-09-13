@@ -1,0 +1,48 @@
+# toto ti z gitu automaticky nakonfiguruje komponenty, a bude sa prisposobovat tomu co bude na gite..
+# PO ZMENE TREBA:
+#   kubectl apply -f ./2-bootstrap/2-components.yaml
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap-apps
+  namespace: argocd-system
+spec:
+  project: default
+  sources:
+
+    - repoURL: https://github.com/idpsycho/iac.git
+      targetRevision: HEAD
+      path: 2-appsets/demosub2
+      directory:
+        include: "demosub2.yaml"
+
+    - repoURL: https://github.com/idpsycho/iac.git
+      targetRevision: HEAD
+      path: 2-appsets/nodeapp
+      directory:
+        include: "nodeapp.yaml"
+
+    - repoURL: https://github.com/idpsycho/iac.git
+      targetRevision: HEAD
+      path: 2-appsets/uiai
+      directory:
+        include: "uiai.yaml"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status
+

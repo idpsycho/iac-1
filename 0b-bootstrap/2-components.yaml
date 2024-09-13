@@ -1,0 +1,35 @@
+# toto ti z gitu automaticky nakonfiguruje appky, a bude sa prisposobovat tomu co bude na gite..
+# PO ZMENE TREBA:
+#   kubectl apply -f ./2-bootstrap/3-apps.yaml
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap-components
+  namespace: argocd-system
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/idpsycho/iac.git
+    targetRevision: HEAD
+    path: 1-components
+    directory:
+      include: components-appset.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status
+

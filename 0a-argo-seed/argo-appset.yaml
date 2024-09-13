@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: argo-appset
+  namespace: argocd-system
+spec:
+  goTemplate: true
+  generators:
+  - git:
+      repoURL: https://github.com/idpsycho/iac.git
+      revision: HEAD
+      files:
+      - path: 1-argo-seed/*/chart-config.yaml
+  template:
+    metadata:
+      name: 'seed-{{ .path.basename }}'
+      annotations:
+        argocd.argoproj.io/debug: "true"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/idpsycho/iac.git
+        targetRevision: HEAD
+        path: '{{ .path.path }}/chart'
+        helm:
+          releaseName: '{{ .release.name }}'
+          valueFiles:
+          - '../values.yaml'
+          - '../chart-config.yaml'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ .release.namespace }}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - FailOnSharedResource=true

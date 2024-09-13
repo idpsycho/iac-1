@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-sidlo
+  namespace: argocd-system
+spec:
+  generators:
+  - list:
+      elements:
+      - name: sidlo
+  template:
+    metadata:
+      name: 'app-sidlo'
+      namespace: argocd-system
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/idpsycho/iac.git'
+        targetRevision: HEAD
+        path: '3-app-charts/sidlo/chart'
+        helm:
+          valueFiles:
+          - '../values.yaml'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'app-sidlo'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
