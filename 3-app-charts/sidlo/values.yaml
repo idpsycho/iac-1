@@ -22,5 +22,5 @@ api:
 container:
   port: 80
   image:
-    repository: europe-central2-docker.pkg.dev/playgroundmain/sidlo
+    repository: europe-central2-docker.pkg.dev/playgroundmain/sidlo/app
     tag: latest
