@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/idpsycho/iac.git
+    - repoURL: https://github.com/wiseman88/iac.git
       targetRevision: HEAD
       path: 0a-argo-seed/
       directory:

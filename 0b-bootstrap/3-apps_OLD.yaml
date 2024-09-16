@@ -12,19 +12,19 @@ spec:
   project: default
   sources:
 
-    - repoURL: https://github.com/idpsycho/iac.git
+    - repoURL: https://github.com/wiseman88/iac.git
       targetRevision: HEAD
       path: 2-appsets/demosub2
       directory:
         include: "demosub2.yaml"
 
-    - repoURL: https://github.com/idpsycho/iac.git
+    - repoURL: https://github.com/wiseman88/iac.git
       targetRevision: HEAD
       path: 2-appsets/nodeapp
       directory:
         include: "nodeapp.yaml"
 
-    - repoURL: https://github.com/idpsycho/iac.git
+    - repoURL: https://github.com/wiseman88/iac.git
       targetRevision: HEAD
       path: 2-appsets/uiai
       directory:

@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/idpsycho/iac.git
+    repoURL: https://github.com/wiseman88/iac.git
     targetRevision: HEAD
     path: 1-components
     directory:
