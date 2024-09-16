@@ -22,5 +22,5 @@ api:
 container:
   port: 80
   image:
-    repository: gcr.io/playgroundmain/sidlo
+    repository: gcr.io/playgroundmain/sidlo:latest
     tag: latest

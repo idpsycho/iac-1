@@ -5,7 +5,7 @@ kubectl config current-context
 
 # pustaj z rootu (checkni seed/argocd/DASBOARD.md ak chces ist na dashboard)
 helm upgrade --install argocd ./0a-argo-seed/argocd/chart \
-  -f ./1-argo-seed/argocd/values.yaml -n argocd-system --create-namespace
+  -f ./0a-argo-seed/argocd/values.yaml -n argocd-system --create-namespace
 
 # kubectl port-forward service/argocd-server -n argocd-system 8080:443
 
