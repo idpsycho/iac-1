@@ -7,7 +7,7 @@ spec:
   goTemplate: true
   generators:
   - git:
-      repoURL: https://github.com/idpsycho/iac.git
+      repoURL: https://github.com/wiseman88/iac.git
       revision: HEAD
       files:
       - path: 1-argo-seed/*/chart-config.yaml
@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/idpsycho/iac.git
+        repoURL: https://github.com/wiseman88/iac.git
         targetRevision: HEAD
         path: '{{ .path.path }}/chart'
         helm:
