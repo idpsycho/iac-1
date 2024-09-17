@@ -47,8 +47,8 @@ service:
     networking.gke.io/load-balancer-type: "External"
     # nepouziva to tu ipcku vobec..
     kubernetes.io/ingress.global-static-ip-name: "my-static-ip"
-  # spec:
-  #   loadBalancerIP: 34.128.186.29
+  spec:
+    loadBalancerIP: 34.118.16.170
 
 
 securityContext:
