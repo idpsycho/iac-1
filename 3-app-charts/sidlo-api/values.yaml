@@ -1,0 +1,26 @@
+# Service wide configuration
+metadata:
+  appName: sidlo-api
+  branch: main
+  partOf: app-sidlo-api
+  namespace: app-sidlo-api
+  component: web
+
+replicas: 1
+
+# Transparent proxy configuration
+ingress:
+  host: sidlo-api.skusdev.net
+  domain: skusdev.net
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: http-cert-issuer
+
+api:
+  url: http://sidlo-api.skusdev.net
+
+container:
+  port: 80
+  image:
+    repository: gcr.io/playgroundmain/sidlo-api
+    tag: latest
