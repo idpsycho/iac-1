@@ -43,7 +43,6 @@ ports:
 #     cloud.google.com/load-balancer-ip: "<YOUR-STATIC-IP-ADDRESS>"
 service:
   type: LoadBalancer
-  loadBalancerIP: 34.118.16.170
   annotations:
     networking.gke.io/load-balancer-type: "External"
     # nepouziva to tu ipcku vobec..

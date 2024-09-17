@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: iis-dev.net
+  - host: skusdev.net
     http:
       paths:
       - path: /
