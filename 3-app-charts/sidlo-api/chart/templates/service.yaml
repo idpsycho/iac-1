@@ -10,5 +10,6 @@ spec:
     - name: web
       protocol: TCP
       port: {{ .Values.container.port }}
+      targetPort: 3000
   selector: {{- include "_snippet-labels" . | nindent 4 }}
   type: ClusterIP
