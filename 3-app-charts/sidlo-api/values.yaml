@@ -21,6 +21,7 @@ api:
 
 container:
   port: 80
+  targetPort: 3000
   image:
     repository: gcr.io/playgroundmain/sidlo-api
     tag: latest
