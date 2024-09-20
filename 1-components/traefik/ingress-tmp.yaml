@@ -17,7 +17,7 @@ spec:
             name: my-service
             port: 
               number: 80
-  - host: sidlo-test.inforo.sk
+  - host: inforo.sk
     http:
       paths:
       - path: /
