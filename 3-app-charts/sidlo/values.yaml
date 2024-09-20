@@ -15,12 +15,6 @@ ingress:
   className: traefik
   annotations:
     cert-manager.io/cluster-issuer: http-cert-issuer
-  host: sidlo-test.inforo.sk
-    domain: inforo.sk
-    className: traefik
-    annotations:
-      cert-manager.io/cluster-issuer: http-cert-issuer
-  
 
 api:
   url: http://sidlo.skusdev.net
