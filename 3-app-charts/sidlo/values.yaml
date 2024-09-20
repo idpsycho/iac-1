@@ -10,8 +10,16 @@ replicas: 1
 
 # Transparent proxy configuration
 ingress:
-  host: sidlo-test.inforo.sk
-  domain: inforo.sk
+  hosts:
+    - host: sidlo.skusdev.net
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: sidlo-test.inforo.sk
+      paths:
+        - path: /
+          pathType: Prefix
+  domain: skusdev.net
   className: traefik
   annotations:
     cert-manager.io/cluster-issuer: http-cert-issuer
