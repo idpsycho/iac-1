@@ -38,7 +38,9 @@ ingress:
                   number: 80
 
 api:
-  url: http://sidlo.skusdev.net
+  urls:
+    - http://sidlo.skusdev.net
+    - http://sidlo-test.inforo.sk
 
 container:
   port: 80
