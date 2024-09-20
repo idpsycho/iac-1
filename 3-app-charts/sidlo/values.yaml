@@ -19,7 +19,6 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-  domain: skusdev.net
   className: traefik
   annotations:
     cert-manager.io/cluster-issuer: http-cert-issuer
