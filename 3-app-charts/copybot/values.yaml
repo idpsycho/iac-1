@@ -1,0 +1,26 @@
+# Service wide configuration
+metadata:
+  appName: copybot
+  branch: main
+  partOf: app-copybot
+  namespace: app-copybot
+  component: web
+
+replicas: 1
+
+# Transparent proxy configuration
+ingress:
+  host: copybot-test.skus.dev
+  domain: skus.dev
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: http-cert-issuer
+
+api:
+  url: http://copybot-test.skus.dev
+
+container:
+  port: 80
+  image:
+    repository: gcr.io/playgroundmain/copybot
+    tag: latest
