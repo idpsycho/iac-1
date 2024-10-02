@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.metadata.appName}}
+  labels:
+    {{- include "_snippet-labels" . | nindent 4 }}
+    {{- include "_snippet-labels-version" . | nindent 4 }}
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: {{ .Values.container.port }}
+      targetPort: {{ .Values.container.targetPort }}
+  selector: {{- include "_snippet-labels" . | nindent 4 }}
+  type: ClusterIP
