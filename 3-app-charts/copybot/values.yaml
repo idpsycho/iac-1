@@ -10,14 +10,14 @@ replicas: 1
 
 # Transparent proxy configuration
 ingress:
-  host: copybot-test.inforo.sk
-  domain: inforo.sk
+  host: copybot-test.skusdev.net
+  domain: skusdev.net
   className: traefik
   annotations:
     cert-manager.io/cluster-issuer: http-cert-issuer
 
 api:
-  url: http://copybot-test.inforo.sk
+  url: http://copybot-test.skusdev.net
 
 container:
   port: 80
