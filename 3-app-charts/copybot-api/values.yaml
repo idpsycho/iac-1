@@ -21,7 +21,7 @@ api:
 
 container:
   port: 80
-  targetPort: 3000
+  targetPort: 666
   image:
     repository: gcr.io/playgroundmain/copybot-api
     tag: latest
