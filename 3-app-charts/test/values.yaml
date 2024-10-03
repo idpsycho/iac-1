@@ -1,0 +1,26 @@
+# Service wide configuration
+metadata:
+  appName: test
+  branch: main
+  partOf: app-test
+  namespace: app-test
+  component: web
+
+replicas: 1
+
+# Transparent proxy configuration
+ingress:
+  host: test-test.skusdev.net
+  domain: skusdev.net
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: http-cert-issuer
+
+api:
+  url: http://test-test.skusdev.net
+
+container:
+  port: 80
+  image:
+    repository: gcr.io/playgroundmain/test
+    tag: latest
