@@ -4,8 +4,8 @@ release:
 destination:
   server: https://kubernetes.default.svc
 
-release:
-  name: argocd
-  namespace: default
-destination:
-  server: https://34.118.76.43
+# release:
+#   name: argocd
+#   namespace: default
+# destination:
+#   server: https://34.118.76.43
