@@ -28,7 +28,7 @@ spec:
           - '../values.yaml'
           - '../chart-config.yaml'
       destination:
-        server: https://kubernetes.default.svc
+        server: '{{ .destination.server }}'
         namespace: '{{ .release.namespace }}'
       syncPolicy:
         automated:
